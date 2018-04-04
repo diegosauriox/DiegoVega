@@ -61,41 +61,41 @@ public luchador_DiegoVega() {
 	this.faccion=faccion();
 }	
 
-public static int rango() {
+private static int rango() {
 	int[] stars= {1,1,1,1,1,1,1,1,2,2,2,2,2,2,3,3,3,4,4,5};
 	Random rnd= new Random() 	;
 	int estrellas;
 	estrellas=stars[rnd.nextInt(stars.length)];
 	return estrellas;
 }
-public static int valorAtk(int rango) {
+private static int valorAtk(int rango) {
 	int valor;
 	valor=rango*(20+(int)(Math.random()*50+1));
 	return valor;
 }
-public static int valorDef(int rango) {
+private static int valorDef(int rango) {
 	int valor;
 	valor=rango*(5+(int)(Math.random()*20+1));
 	return valor;
 }
-public static int valorHp(int rango) {
+private static int valorHp(int rango) {
 	int valor;
 	valor=rango*(200+(int)(Math.random()*300+1));
 	return valor;
 }
-public static int valorSpd(int rango) {
+private static int valorSpd(int rango) {
 	int valor;
 	valor=rango*(10+(int)(Math.random()*90+1));
 	return valor;
 }
-public static String nombres() {
+private static String nombres() {
 	String name;
 	Random rnd= new Random();
 	String[] nombres= {"Diego","Victor","Fernando","Nicolas","Mauricio","Mauro","Marcelo","Aliwen","Cristobal","Francisco","Jose","Javiera","Neshat","Niki","Fernanda","Felipe","Maria","Daniela"};
 	name=nombres[rnd.nextInt(nombres.length)];
 	return name;
 }
-public static String faccion() {
+private static String faccion() {
 	Random rnd=new Random();
 	String faccion;
 	String[] elementos= {"Fuego","Agua","Tierra"};
@@ -110,7 +110,6 @@ public void mostrar() {
 	System.out.println("el velocidad es "+ getSpd());
 	System.out.println("la vida es "+ getHp());
 	System.out.println("el rango es "+ getRango());
-	System.out.println("el nombre es "+ getNombre());
 	System.out.println("su faccion es "+ getFaccion());
 }
 
