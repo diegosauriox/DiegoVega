@@ -1,11 +1,18 @@
 import java.util.Random;
 public class ObjetoEquipable {
-private String caracteristica;
+private String atributo;
 private int mejoraTotal;
-private int estrellas;
+private int rangoEstrellas;
 private int rango;
+private String tipo;
+private String[]tipos= {"espada","escudo","armadura","botas"};
 
-
+public String getTipo() {
+	return tipo;
+}
+public void setTipo(String tipo) {
+	this.tipo = tipo;
+}
 public int getMejoraTotal() {
 	return mejoraTotal;
 }
@@ -18,37 +25,44 @@ public int getRango() {
 public void setRango(int rango) {
 	this.rango = rango;
 }
-public String getCaracteristica() {
-	return caracteristica;
+public String getAtributo() {
+	return atributo;
 }
-public void setCaracteristica(String caracteristica) {
-	this.caracteristica = caracteristica;
+public void setAtributo(String atributo) {
+	this.atributo = atributo;
 }
-public int getEstrellas() {
-	return estrellas;
+public int getRangoEstrellas() {
+	return rangoEstrellas;
 }
-public void setMejora(int estrellas) {
-	this.estrellas = estrellas;
+public void setRangoEstrellas(int rangoEstrellas) {
+	this.rangoEstrellas = rangoEstrellas;
 }
 public ObjetoEquipable() {
-	this.caracteristica=caracteristicaAleatoria();
-	this.mejoraTotal(estrellas, rango);
-	this.estrellas=estrellas();
+	this.atributo=atributoAleatoria(tipo);
+	this.mejoraTotal=mejoraTotal(rangoEstrellas, rango);
+	this.rangoEstrellas=rangoEstrellas();
 	this.rango=rango();
+	this.tipo=tipoAleatorio();
 }
-public static String caracteristicaAleatoria() {
-	String[] caracteristica= {"atk","hp","def","spd"};
-	Random rnd= new Random();
-	String caract;
-    caract=caracteristica[rnd.nextInt(caracteristica.length)];
-    return caract;
+private static String atributoAleatoria(String tipo) {
+	String atributo="";
+    if (tipo=="espada") {
+    	atributo="atk";
+    }else if(tipo=="armadura") {
+    	atributo="hp";
+    }else if (tipo=="escudo") {
+    	atributo="def";
+    }else if(tipo=="botas") {
+    	atributo="spd";
+    }
+    return atributo;
 }
-public static int rango() {
+private static int rango() {
 	int rango;
 	rango=(int)(Math.random()*9+1);
 	return rango;
 }
-public static int estrellas() {
+private static int rangoEstrellas() {
 	int estrellas=0;
 	int rangoEstrellas;
 	rangoEstrellas=(int)(Math.random()*100+1);
@@ -76,10 +90,22 @@ public static int estrellas() {
 	return estrellas;
 	
 }
-public int mejoraTotal(int estrellas, int rango) {
+private int mejoraTotal(int rangoEstrellas, int rango) {
 	int mejoraTotal;
-	mejoraTotal= estrellas*rango;
+	mejoraTotal= rangoEstrellas*rango;
 	return mejoraTotal;
 }
-	}
+private String tipoAleatorio() {
+	Random rnd= new Random();
+	String tipo=tipos[rnd.nextInt(tipos.length)];
+	return tipo;
+}
 
+public void mostrar() {
+	System.out.println("Atributo= "+ getAtributo());
+	System.out.println("Mejora Total= "+getMejoraTotal());
+	System.out.println("Rango= "+ getRango());
+	System.out.println("Rango de estrellas= "+ getRangoEstrellas());
+	System.out.println("Tipo= "+ getTipo());
+}
+	}
