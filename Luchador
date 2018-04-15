@@ -1,6 +1,6 @@
 import java.util.Random;
 import java.util.ArrayList;
-public class luchador_DiegoVega {
+public class Luchador {
  private String nombre;
  private int atk;
  private int hp;
@@ -51,7 +51,7 @@ public void setDef(int def){
 public void setSpd(int spd) {
 	this.spd=spd;
 }
-public luchador_DiegoVega() {
+public Luchador() {
 	this.rango=rango();
 	this.nombre=nombres();
 	this.atk=valorAtk(rango);
