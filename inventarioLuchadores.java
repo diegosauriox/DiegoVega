@@ -1,25 +1,25 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 public class inventarioLuchadores {
-private ArrayList<luchador_DiegoVega> cantLuchadores= new ArrayList<luchador_DiegoVega>();
+private ArrayList<Luchador> cantLuchadores= new ArrayList<Luchador>();
 private static Scanner sca= new Scanner(System.in);
 
-private static void agregarLuchadores(ArrayList<luchador_DiegoVega>luchadores) {
+private static void agregarLuchadores(ArrayList<Luchador>luchadores) {
 	if( luchadores.size()<26) {
 		luchadores.add(new luchador_DiegoVega());	
 	}else {
 		System.out.println("Usted no puede crear mas luchadres");
 	}
 }
-private static void MostrarCantidad(ArrayList<luchador_DiegoVega>luchadores)	{	
+private static void MostrarCantidad(ArrayList<Luchador>luchadores)	{	
  System.out.println(luchadores.size());
 }
-private static void EliminarLuchador(ArrayList<luchador_DiegoVega>luchadores) {
+private static void EliminarLuchador(ArrayList<Luchador>luchadores) {
 	System.out.println("elija el numero del luchador que desee eliminar");
 	int numero= sca.nextInt();
 	luchadores.remove(numero-1);
 }
-private  void filtrarLuchadores(ArrayList<luchador_DiegoVega>luchadores) {
+private  void filtrarLuchadores(ArrayList<Luchador>luchadores) {
 	 System.out.println("filtrar por rango o por faccion");
 	 String filtro= sca.nextLine();
 	 if (filtro=="rango") {
@@ -30,7 +30,7 @@ private  void filtrarLuchadores(ArrayList<luchador_DiegoVega>luchadores) {
 					 System.out.println("debe elejir entre rango o filtro");
 				 }
 	             }    
-private  void faccionPedida(ArrayList<luchador_DiegoVega>luchadores) {
+private  void faccionPedida(ArrayList<Luchador>luchadores) {
 	System.out.println("elija la faccion que desea filtrar");
 	 String faccion= sca.nextLine();
 	 for(int i=0; i<luchadores.size();i++) {
@@ -39,7 +39,7 @@ private  void faccionPedida(ArrayList<luchador_DiegoVega>luchadores) {
 }
 }
 }
-private  void rangoPedido(ArrayList<luchador_DiegoVega>luchadores) {
+private  void rangoPedido(ArrayList<Luchador>luchadores) {
 	System.out.println("elija el rango que desea filtrar");
 	 int rango= sca.nextInt();
 	 for(int i=0; i<luchadores.size();i++) {
@@ -48,7 +48,7 @@ private  void rangoPedido(ArrayList<luchador_DiegoVega>luchadores) {
 	 }
 	 }
 }
-private  void MostrarLuchadores(ArrayList<luchador_DiegoVega>luchadores) {
+private  void MostrarLuchadores(ArrayList<Luchador>luchadores) {
 	for(int i=0; i<luchadores.size();i++) {
 		System.out.println(luchadores.get(i).getNombre()+ luchadores.get(i).getFaccion()+luchadores.get(i).getRango());
 	}
