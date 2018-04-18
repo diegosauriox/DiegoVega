@@ -4,19 +4,18 @@ public class inventarioLuchadores {
 private ArrayList<Luchador> cantLuchadores= new ArrayList<Luchador>();
 private static Scanner sca= new Scanner(System.in);
 
-
-private  void agregarLuchadores(ArrayList<Luchador>luchadores) {
-	
+private static void agregarLuchadores(ArrayList<Luchador>luchadores) {
 	if( luchadores.size()<26) {
 		luchadores.add(new Luchador());	
+
 	}else {
 		System.out.println("Usted no puede crear mas luchadres");
 	}
 }
-private  void MostrarCantidad(ArrayList<Luchador>luchadores)	{	
-	System.out.println(luchadores.size());
+private static void MostrarCantidad(ArrayList<Luchador>luchadores)	{	
+ System.out.println(luchadores.size());
 }
-private void EliminarLuchador(ArrayList<Luchador>luchadores) {
+private static void EliminarLuchador(ArrayList<Luchador>luchadores) {
 	System.out.println("elija el numero del luchador que desee eliminar");
 	int numero= sca.nextInt();
 	luchadores.remove(numero-1);

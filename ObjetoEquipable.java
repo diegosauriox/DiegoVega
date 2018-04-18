@@ -109,4 +109,3 @@ public void mostrar() {
 	System.out.println("Tipo= "+ getTipo());
 }
 	}
-

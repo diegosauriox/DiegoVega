@@ -1,3 +1,4 @@
+
 import java.util.Random;
 
 public class Monstruo {
@@ -76,3 +77,4 @@ private static String faccion() {
 	return faccion;
 }
 }
+
