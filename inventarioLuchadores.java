@@ -1,10 +1,16 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-public class inventarioLuchadores {
+public class inventarioLuchadores{ 
 private ArrayList<Luchador> cantLuchadores= new ArrayList<Luchador>();
 private static Scanner sca= new Scanner(System.in);
+private static Luchador uno= new Luchador();
 
-private static void agregarLuchadores(ArrayList<Luchador>luchadores) {
+
+
+public static void agregarLuchadores(ArrayList<Luchador>luchadores) {
+	if(luchadores.size()==0) {
+		luchadores.add(uno);
+	}
 	if( luchadores.size()<26) {
 		luchadores.add(new Luchador());	
 
@@ -13,15 +19,24 @@ private static void agregarLuchadores(ArrayList<Luchador>luchadores) {
 	}
 }
 private static void MostrarCantidad(ArrayList<Luchador>luchadores)	{	
- System.out.println(luchadores.size());
+	if(luchadores.size()==0) {
+		luchadores.add(uno);
+	}
+	System.out.println(luchadores.size());
 }
 private static void EliminarLuchador(ArrayList<Luchador>luchadores) {
+	if(luchadores.size()==0) {
+		luchadores.add(uno);
+	}
 	System.out.println("elija el numero del luchador que desee eliminar");
 	int numero= sca.nextInt();
 	luchadores.remove(numero-1);
 }
 private  void filtrarLuchadores(ArrayList<Luchador>luchadores) {
-	 System.out.println("filtrar por rango o por faccion");
+	if(luchadores.size()==0) {
+		luchadores.add(uno);
+	} 
+	System.out.println("filtrar por rango o por faccion");
 	 String filtro= sca.nextLine();
 	 if (filtro=="rango") {
 			rangoPedido(luchadores);
@@ -50,6 +65,9 @@ private  void rangoPedido(ArrayList<Luchador>luchadores) {
 	 }
 }
 private  void MostrarLuchadores(ArrayList<Luchador>luchadores) {
+	if(luchadores.size()==0) {
+		luchadores.add(uno);
+	}
 	for(int i=0; i<luchadores.size();i++) {
 		System.out.println(luchadores.get(i).getNombre()+ luchadores.get(i).getFaccion()+luchadores.get(i).getRango());
 	}
@@ -61,9 +79,5 @@ private  void MostrarLuchadores(ArrayList<Luchador>luchadores) {
 		}
 	}
 }
-public void primerLuchador(ArrayList<Luchador>luchadores) {
-	if (luchadores.size()==0) {
-		luchadores.add(new Luchador());
-	}
-}
+
 }
