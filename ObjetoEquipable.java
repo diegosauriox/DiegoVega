@@ -38,13 +38,14 @@ public void setRangoEstrellas(int rangoEstrellas) {
 	this.rangoEstrellas = rangoEstrellas;
 }
 public ObjetoEquipable() {
-	this.atributo=atributoAleatoria(tipo);
-	this.mejoraTotal=mejoraTotal(rangoEstrellas, rango);
+	this.tipo=tipoAleatorio();
+	this.atributo=atributoAleatorio(tipo);
 	this.rangoEstrellas=rangoEstrellas();
 	this.rango=rango();
-	this.tipo=tipoAleatorio();
+	this.mejoraTotal=mejoraTotal(rangoEstrellas,rango);
+	
 }
-private static String atributoAleatoria(String tipo) {
+private static String atributoAleatorio(String tipo) {
 	String atributo="";
     if (tipo=="espada") {
     	atributo="atk";
@@ -102,10 +103,10 @@ private String tipoAleatorio() {
 }
 
 public void mostrar() {
+	System.out.println("Tipo= "+ getTipo());
 	System.out.println("Atributo= "+ getAtributo());
 	System.out.println("Mejora Total= "+getMejoraTotal());
 	System.out.println("Rango= "+ getRango());
 	System.out.println("Rango de estrellas= "+ getRangoEstrellas());
-	System.out.println("Tipo= "+ getTipo());
 }
 	}

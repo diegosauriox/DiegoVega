@@ -1,7 +1,8 @@
 
 import java.util.Random;
-
+import java.util.ArrayList;
 public class Monstruo {
+private ArrayList<ObjetoEquipable>drop= new ArrayList<ObjetoEquipable>();
 private int hp;
 private int atk;
 private int def;
@@ -60,15 +61,45 @@ private static int valorHp() {
 	valor=(3500+(int)(Math.random()*500+1));
 	return valor;
 }
+
 private static int valorSpd() {
 	int valor;
 	valor=(10+(int)(Math.random()*90+1));
 	return valor;
 }
-private void crearObjetoDropeable() {
+private void crearObjetoDropeable(ArrayList<ObjetoEquipable>drop) {
+	do{
 	ObjetoEquipable objeto= new ObjetoEquipable();
-	objeto.mostrar();
+	if(objeto.getRangoEstrellas()==1) {
+		drop.add(objeto);
+	}
+	}while( drop.size()!=1);
+	do{
+		ObjetoEquipable objeto= new ObjetoEquipable();
+		if(objeto.getRangoEstrellas()==3) {
+			drop.add(objeto);
+		}
+	}while(drop.size()!=2);
+	do {
+		ObjetoEquipable objeto= new ObjetoEquipable();
+		if(objeto.getRangoEstrellas()==5) {
+			drop.add(objeto);
+		}
+	}while(drop.size()!=3);
+	}
+public void dropear(ArrayList<ObjetoEquipable>drop) {
+	crearObjetoDropeable(drop);
+	int porcentaje=(int)(Math.random()*10+1);
+	if (porcentaje<=6) {
+		drop.get(0).mostrar();
+	}else if(porcentaje<=9) {
+		drop.get(1).mostrar();
+	}else if(porcentaje==10) {
+		drop.get(2).mostrar();
+	}
 }
+
+
 private static String faccion() {
 	Random rnd=new Random();
 	String faccion;

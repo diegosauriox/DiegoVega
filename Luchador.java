@@ -1,7 +1,11 @@
 import java.util.Random;
 import java.util.ArrayList;
+import java.util.Scanner;
 public class Luchador {
- 
+private ArrayList<ObjetoEquipable> cantObjetos= new ArrayList<ObjetoEquipable>();
+private ArrayList<ObjetoEquipable> objetoequip= new ArrayList<ObjetoEquipable>();
+private ArrayList<Luchador> cantLuchadores= new ArrayList<Luchador>();
+private Scanner sca= new Scanner(System.in);
 private String nombre;
  private int atk;
  private int hp;
@@ -56,10 +60,11 @@ public void setSpd(int spd) {
 public Luchador() {
 	this.rango=rango();
 	this.nombre=nombres();
-	this.atk=valorAtk(rango);
-	this.hp=valorHp(rango);
-	this.def=valorDef(rango);
-	this.spd=valorSpd(rango);
+	this.atk=valorAtk(this.rango);
+	this.hp=valorHp(this.rango);
+	this.def=valorDef(this.rango);
+	
+	this.spd=valorSpd(this.rango);
 	this.faccion=faccion();
 }	
 
@@ -113,6 +118,14 @@ public void mostrar() {
 	System.out.println("la vida es "+ getHp());
 	System.out.println("el rango es "+ getRango());
 	System.out.println("su faccion es "+ getFaccion());
+	
 }
 
+
+	
 }
+
+
+
+
+

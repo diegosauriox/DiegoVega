@@ -1,7 +1,8 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-public class inventarioLuchadores{ 
+public class InventarioLuchadores{ 
 private ArrayList<Luchador> cantLuchadores= new ArrayList<Luchador>();
+private ArrayList<ObjetoEquipable> cantObjetos= new ArrayList<ObjetoEquipable>();
 private static Scanner sca= new Scanner(System.in);
 private static Luchador uno= new Luchador();
 
@@ -18,13 +19,13 @@ public static void agregarLuchadores(ArrayList<Luchador>luchadores) {
 		System.out.println("Usted no puede crear mas luchadres");
 	}
 }
-private static void MostrarCantidad(ArrayList<Luchador>luchadores)	{	
+public static void mostrarCantidad(ArrayList<Luchador>luchadores)	{	
 	if(luchadores.size()==0) {
 		luchadores.add(uno);
 	}
 	System.out.println(luchadores.size());
 }
-private static void EliminarLuchador(ArrayList<Luchador>luchadores) {
+public static void eliminarLuchador(ArrayList<Luchador>luchadores) {
 	if(luchadores.size()==0) {
 		luchadores.add(uno);
 	}
@@ -32,52 +33,54 @@ private static void EliminarLuchador(ArrayList<Luchador>luchadores) {
 	int numero= sca.nextInt();
 	luchadores.remove(numero-1);
 }
-private  void filtrarLuchadores(ArrayList<Luchador>luchadores) {
+public  void filtrarLuchadores(ArrayList<Luchador>luchadores) {
+	String filtro;
 	if(luchadores.size()==0) {
 		luchadores.add(uno);
 	} 
-	System.out.println("filtrar por rango o por faccion");
-	 String filtro= sca.nextLine();
-	 if (filtro=="rango") {
+	System.out.println("¿Filtrar por rango o por faccion?");
+	filtro=sca.nextLine();
+	 if (filtro.equals("rango")) {
 			rangoPedido(luchadores);
-		 }else if ( filtro=="faccion") {
+	 }else if ( filtro.equals("faccion")) {
 			faccionPedida(luchadores);
-				 }else {
-					 System.out.println("debe elejir entre rango o filtro");
-				 }
-	             }    
-private  void faccionPedida(ArrayList<Luchador>luchadores) {
+	 }else {
+           	 System.out.println("debe elejir entre rango o faccion");
+           	 }
+ }    
+public  void faccionPedida(ArrayList<Luchador>luchadores) {
 	System.out.println("elija la faccion que desea filtrar");
 	 String faccion= sca.nextLine();
 	 for(int i=0; i<luchadores.size();i++) {
-		 if(luchadores.get(i).getFaccion()==faccion) {
+		 if(luchadores.get(i).getFaccion().equals(faccion)) {
 			 System.out.println(luchadores.get(i));
 }
 }
 }
-private  void rangoPedido(ArrayList<Luchador>luchadores) {
+public  void rangoPedido(ArrayList<Luchador>luchadores) {
 	System.out.println("elija el rango que desea filtrar");
 	 int rango= sca.nextInt();
 	 for(int i=0; i<luchadores.size();i++) {
 		if(luchadores.get(i).getRango()==rango) {
-		System.out.println(luchadores.get(i));
+		System.out.println(luchadores.get(i).getNombre());
 	 }
 	 }
 }
-private  void MostrarLuchadores(ArrayList<Luchador>luchadores) {
+public  void mostrarLuchadores(ArrayList<Luchador>luchadores) {
 	if(luchadores.size()==0) {
 		luchadores.add(uno);
 	}
 	for(int i=0; i<luchadores.size();i++) {
-		System.out.println(luchadores.get(i).getNombre()+ luchadores.get(i).getFaccion()+luchadores.get(i).getRango());
+		System.out.println(luchadores.get(i).getNombre());
 	}
 	System.out.println("Elija el nombre de un luchador");
 	String nombre= sca.nextLine();
 	for(int i=0; i<luchadores.size();i++) {
-		if (luchadores.get(i).getNombre()==nombre) {
+		if (luchadores.get(i).getNombre().equals(nombre)) {
 			luchadores.get(i).mostrar();
 		}
 	}
 }
 
 }
+
