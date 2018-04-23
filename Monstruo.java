@@ -91,14 +91,15 @@ public class Monstruo {
 		this.listaObjetosDropeables.add(objeto3);
 	}
 
-	public void dropear(ArrayList<ObjetoEquipable> drop) {
+	public void dropear() {
+		System.out.println("****DROOOOOOP****");
 		int porcentaje = (int) (Math.random() * 10 + 1);
 		if (porcentaje <= 6) {
-			drop.get(0).mostrar();
+			this.listaObjetosDropeables.get(0).mostrar();
 		} else if (porcentaje <= 9) {
-			drop.get(1).mostrar();
+			this.listaObjetosDropeables.get(1).mostrar();
 		} else if (porcentaje == 10) {
-			drop.get(2).mostrar();
+			this.listaObjetosDropeables.get(2).mostrar();
 		}
 	}
 

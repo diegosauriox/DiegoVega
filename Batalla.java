@@ -25,6 +25,7 @@ public class Batalla {
 					System.out.println("El monstruo ha quedado con " + totalHp + " HP");
 					if (monstruo.getHp() <= 0) {
 						System.out.println("El monstruo ha muerto");
+						monstruo.dropear();
 						break;
 					}
 					
@@ -68,6 +69,7 @@ public class Batalla {
 							monstruoAtaco = true;
 							if (monstruo.getHp() <= 0) {
 								System.out.println("El monstruo ha muerto");
+								monstruo.dropear();
 								break;
 							}
 						}
@@ -79,6 +81,7 @@ public class Batalla {
 						System.out.print("El monstruo ha quedado con " + totalHp + " HP");
 						if (monstruo.getHp() <= 0) {
 							System.out.println("El monstruo ha muerto");
+							monstruo.dropear();//drop
 							break;
 						}
 					}
