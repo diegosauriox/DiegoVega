@@ -1,0 +1,5 @@
+Batalla->dependencia-> Dados: ya que el 1ro crea un objeto de la clase Dados para un solo uso
+Monstruo->asociacion-> ObjetoEquipable: trabajan en conjunto
+luchador->asociacion->objetoEquipable: luchador puede poseer un objeto de la clase ObjetoEquipable
+Main->asociacion->Luchador: Main crea una lista a partir de objetos de la clase Luchador
+Main->asociacion-ObjetoEquipable:Main crea una lista a partir de objetos de la clase Luchador
