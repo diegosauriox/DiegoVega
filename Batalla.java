@@ -129,7 +129,7 @@ public class Batalla {
 			atk = calculaAtkAdicional(atk, luchador.getFaccion(), monstruo.getFaccion());
 			dano = atk - monstruo.getDef();
 		} else {
-			dano = luchador.getAtk() - monstruo.getDef();
+			dano = (luchador.getAtk() - monstruo.getDef());
 		}
 		if (dano < 0) {
 			dano = 0;
@@ -145,7 +145,7 @@ public class Batalla {
 			atk = calculaAtkAdicional(atk, luchador.getFaccion(), monstruo.getFaccion());
 			dano = atk - luchador.getDef();
 		} else {
-			dano = monstruo.getAtk() - luchador.getDef();
+			dano = (monstruo.getAtk() - luchador.getDef());
 		}
 		if (dano < 0) {
 			dano = 0;
@@ -153,28 +153,28 @@ public class Batalla {
 		return dano;
 	}
 	
-	private float calculaAtkAdicional(float dano, String faccionLuchador, String faccionMonstruo){
-		float danoTotal = dano;
+	private float calculaAtkAdicional(float atk, String faccionLuchador, String faccionMonstruo){
+		float atkTotal = atk;
 		if(faccionLuchador.equals("Fuego")){
 			if(faccionMonstruo.equals("Fuego") || faccionMonstruo.equals("Agua")){
-				danoTotal = (float) (dano*0.75);
+				atkTotal = (float) (atk*0.75);
 			} else if(faccionMonstruo.equals("Planta")){
-				danoTotal = (float) (dano*1.5);
+				atkTotal = (float) (atk*1.5);
 			}
 		} else if(faccionLuchador.equals("Agua")){
 				if(faccionMonstruo.equals("Planta") || faccionMonstruo.equals("Agua")){
-					danoTotal = (float) (dano*0.75);
+					atkTotal = (float) (atk*0.75);
 				} else if(faccionMonstruo.equals("Fuego")){
-					danoTotal = (float) (dano*1.5);
+					atkTotal = (float) (atk*1.5);
 				}
 		} else if(faccionLuchador.equals("Planta")){
 			if(faccionMonstruo.equals("Planta") || faccionMonstruo.equals("Fuego")){
-				danoTotal = (float) (dano*0.75);
+				atkTotal = (float) (atk*0.75);
 			} else if(faccionMonstruo.equals("Agua")){
-				danoTotal = (float) (dano*1.5);
+				atkTotal = (float) (atk*1.5);
 			}
 		}
 		
-		return danoTotal;
+		return atkTotal;
 	}
 }
